@@ -4,7 +4,7 @@ metadata:
   annotations:
     serving.knative.dev/creator: system:admin
     serving.knative.dev/lastModifier: system:admin
-  name: spring-petclinic-v01
+  name: spring-petclinic-v02
   namespace: tbs
 spec:
   template:
@@ -16,7 +16,7 @@ spec:
       - env:
         - name: RESPONSE
           value: Hello Serverless!
-        image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic:v0.1
+        image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic:v0.2
         name: user-container
         readinessProbe:
           successThreshold: 1
