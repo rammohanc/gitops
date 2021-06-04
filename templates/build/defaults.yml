@@ -1,0 +1,8 @@
+#@data/values
+---
+metadata_name: test
+git_revision: v1.0
+git_url: https
+tag: testtag
+ksvc_metadata_name: test
+

@@ -1,7 +1,8 @@
+#@ load("@ytt:data", "data")
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: spring-petclinic-v05
+  name: #@ data.values.ksvc_metadata_name
   namespace: tbs
 spec:
   template:
@@ -10,7 +11,7 @@ spec:
     spec:
       containerConcurrency: 0
       containers:
-        image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic:v0.5
+        image: #@ data.values.tag
         name: user-container
         readinessProbe:
           successThreshold: 1

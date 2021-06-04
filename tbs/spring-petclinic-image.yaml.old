@@ -1,7 +1,7 @@
 apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
-  name: spring-petclinic-v0.5
+  name: spring-petclinic-v0.3
   namespace: tbs
 spec:
   build:
@@ -15,7 +15,7 @@ spec:
   serviceAccount: default
   source:
     git:
-      revision: v0.5
+      revision: v0.3
       url: https://github.com/rammohanc/spring-petclinic.git
   successBuildHistoryLimit: 10
-  tag: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic:v0.5
+  tag: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic:v0.3

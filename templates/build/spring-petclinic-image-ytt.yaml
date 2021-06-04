@@ -1,7 +1,8 @@
+#@ load("@ytt:data", "data")
 apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
-  name: spring-petclinic-v0.5
+  name: #@ data.values.metadata_name
   namespace: tbs
 spec:
   build:
@@ -15,7 +16,7 @@ spec:
   serviceAccount: default
   source:
     git:
-      revision: v0.5
-      url: https://github.com/rammohanc/spring-petclinic.git
+      revision: #@ data.values.git_revision
+      url: #@ data.values.git_url
   successBuildHistoryLimit: 10
-  tag: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic:v0.5
+  tag: #@ data.values.tag
