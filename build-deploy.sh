@@ -19,7 +19,7 @@ git commit -m "build and deploy $APP_NAME $APP_IMAGE_REVISION"
 git tag $APP_IMAGE_REVISION
 git push --tags
 
-argocd app create spring-petclinic-tbs-image --sync-policy auto --repo $APP_GITOPS_URL --revision $APP_IMAGE_REVISION  --path tbs --dest-server https://kubernetes.default.svc --dest-namespace tbs
+argocd app create spring-petclinic-tbs-image --upsert --sync-policy auto --repo $APP_GITOPS_URL --revision $APP_IMAGE_REVISION  --path tbs --dest-server https://kubernetes.default.svc --dest-namespace tbs
 
 
 sleep 300
@@ -33,7 +33,7 @@ sleep 300
 echo "Image built.."
 echo "Deploying image .."
 
-argocd app create spring-petclinic-serverless --sync-policy auto --repo $APP_GITOPS_URL --revision $APP_IMAGE_REVISION  --path ksvc --dest-server https://kubernetes.default.svc --dest-namespace tbs
+argocd app create spring-petclinic-serverless --upsert --sync-policy auto --repo $APP_GITOPS_URL --revision $APP_IMAGE_REVISION  --path ksvc --dest-server https://kubernetes.default.svc --dest-namespace tbs
 
 
 
