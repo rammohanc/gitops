@@ -11,7 +11,7 @@ spec:
     spec:
       containerConcurrency: 0
       containers:
-        image: #@ data.values.tag
+      - image: #@ data.values.tag
         name: user-container
         readinessProbe:
           successThreshold: 1
