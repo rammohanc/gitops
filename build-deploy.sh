@@ -21,7 +21,7 @@ git push
 
 argocd app create spring-petclinic-tbs-image --upsert --sync-policy auto --repo $APP_GITOPS_URL --path tbs --dest-server https://kubernetes.default.svc --dest-namespace tbs
 
-
+#install jq
 sleep 240
 TEST_READINESS=`kubectl get images.kpack.io ${APP_NAME} -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
 while [ ! $TEST_READINESS = "True" ]; do
