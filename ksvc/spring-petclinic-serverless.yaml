@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: spring-petclinic-v10
+  name: spring-petclinic
   namespace: tbs
 spec:
   template:
