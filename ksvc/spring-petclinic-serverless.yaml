@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: spring-petclinic-v08
+  name: spring-petclinic-v10
   namespace: tbs
 spec:
   template:
@@ -10,7 +10,7 @@ spec:
     spec:
       containerConcurrency: 0
       containers:
-      - image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic:v0.8
+      - image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic:v1.0
         name: user-container
         readinessProbe:
           successThreshold: 1
