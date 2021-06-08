@@ -46,4 +46,4 @@ git commit -m "update $APP_NAME $APP_IMAGE_REVISION"
 git push
 
 
-argocd app create spring-petclinic-serverless --upsert --sync-policy auto --repo $APP_GITOPS_URL --revision $APP_IMAGE_REVISION  --path ksvc --dest-server https://kubernetes.default.svc --dest-namespace tbs
+argocd app create spring-petclinic-serverless --upsert --sync-policy auto --repo $APP_GITOPS_URL  --path ksvc --dest-server https://kubernetes.default.svc --dest-namespace tbs
