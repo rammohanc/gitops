@@ -23,11 +23,11 @@ argocd app create spring-petclinic-tbs-image --upsert --sync-policy auto --repo 
 
 
 sleep 240
-TEST_READINESS=`kubectl get images.kpack.io ${APP_NAME}-${APP_IMAGE_REVISION} -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
+TEST_READINESS=`kubectl get images.kpack.io ${APP_NAME} -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
 while [ ! $TEST_READINESS = "True" ]; do
-    echo $(kubectl get images.kpack.io ${APP_NAME}-${APP_IMAGE_REVISION} -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .message')
+    echo $(kubectl get images.kpack.io ${APP_NAME} -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .message')
     sleep 60
-    TEST_READINESS=`kubectl get images.kpack.io ${APP_NAME}-${APP_IMAGE_REVISION} -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
+    TEST_READINESS=`kubectl get images.kpack.io ${APP_NAME} -o json | jq -r '.status.conditions[] | select(.type=="Ready") | .status'`
 done
 
 echo "Image built.."
