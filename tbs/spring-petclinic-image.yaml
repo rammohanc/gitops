@@ -15,7 +15,7 @@ spec:
   serviceAccount: default
   source:
     git:
-      revision: v1.12
+      revision: v1.13
       url: https://github.com/rammohanc/spring-petclinic.git
   successBuildHistoryLimit: 10
   tag: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic
