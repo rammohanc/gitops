@@ -10,7 +10,7 @@ spec:
     spec:
       containerConcurrency: 0
       containers:
-      - image: harbor.run.haas-222.pez.pivotal.io/tbs/spring-petclinic@sha256:bb7f5fada0f30f9558173b2fb8e13b5acc6b500b95ca97ffb0bed220d7ee8377
+      - image: null
         name: user-container
         readinessProbe:
           successThreshold: 1
