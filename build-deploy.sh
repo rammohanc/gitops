@@ -25,11 +25,14 @@ ytt -f templates/build --data-value-yaml metadata_name=${APP_NAME} --data-value-
 
 #ytt -f templates/deploy --data-value-yaml ksvc_metadata_name=${APP_NAME}-${APP_IMAGE_REVISION_NO_PERIOD} --data-value-yaml tag=${APP_IMAGE_TAG}:${APP_IMAGE_REVISION} -o yaml > ksvc/spring-petclinic-serverless.yaml
 
+#commenting this out to speed up deployment, without using argocd for image build
 
-git add .
-git commit -m "build and deploy $APP_NAME $APP_IMAGE_REVISION"
-#git tag $APP_IMAGE_REVISION
-git push
+#git add .
+#git commit -m "build and deploy $APP_NAME $APP_IMAGE_REVISION"
+##git tag $APP_IMAGE_REVISION
+#git push
+
+kubectl apply -f tbs/spring-petclinic-image.yaml
 
 #argocd app create spring-petclinic-tbs-image --upsert --sync-policy auto --repo $APP_GITOPS_URL --path tbs --dest-server https://kubernetes.default.svc --dest-namespace tbs
 
